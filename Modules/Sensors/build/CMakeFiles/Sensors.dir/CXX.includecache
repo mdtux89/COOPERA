@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+.././include/Sensors.h
+iostream
+-
+fstream
+-
+string
+-
+sstream
+-
+vector
+-
+yarp/sig/all.h
+-
+yarp/dev/all.h
+-
+yarp/os/all.h
+-
+yarp/os/RFModule.h
+-
+yarp/os/Network.h
+-
+yarp/os/Thread.h
+-
+../../common/CommonThreads.h
+../common/CommonThreads.h
+
+/home/marco/bioloid/Modules/Sensors/src/Sensors.cpp
+Sensors.h
+/home/marco/bioloid/Modules/Sensors/src/Sensors.h
+

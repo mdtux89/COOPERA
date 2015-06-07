@@ -1,0 +1,65 @@
+/*
+ * Copyright (C) 2013 Marco Damonte
+ * CopyPolicy: Released under the terms of the LGPLv2.1 or later, see LGPL.TXT
+ * Author: Marco Damonte - mdtux89@gmail.com (University of Genoa, Italy), 2013
+ * Based on work of Shashank Pathak for Reinforcement Learning algorithm
+ */
+
+#include <yarp/os/all.h>
+#include <iostream>
+
+using namespace std;
+using namespace yarp::os;
+
+/**
+ * Working thread launched by each module.
+ * It can provide, when required, a check on the battery status in order 
+ * to trigger an alarm when necessary.
+ */
+class LoopThread : public Thread
+{
+private:
+    string name;
+    double limit;
+    int index;
+public:
+   LoopThread(){ //without battery status check
+   	index = -1;
+   }
+   LoopThread(string name, int index, int limit){ // with battery status check
+       this->name = name;
+       this->limit = limit;
+       this->index = index;
+   }
+
+   /**
+    * Thread main loop. If battery status check not required it
+    * repeatedly calls the delay method, otherwise check the input voltage
+    * and trigger an audio alarm when under the limit.
+    */
+   void run(){
+      if (index == -1){
+          while (yarp::os::Thread::isStopping() != true) {
+              yarp::os::Time::delay(10);
+      	  }
+      }
+      else {
+      	  yarp::os::Port sensorPort;
+          sensorPort.open("/batterystatus");
+          Network::connect("/"+name+"/sensors","/batterystatus");
+
+          while (yarp::os::Thread::isStopping() != true) {
+              yarp::os::Time::delay(10);
+              Bottle b;
+              sensorPort.read(b);
+              double v = b.get(index).asDouble();
+              cout << "Voltage: " << v << ". Limit: " << limit << endl;
+              if(v <= limit){
+                  cout << "LOW BATTERY: " << v/10 << " V" << endl;
+                  system("speaker-test -t sine -f 3000 -p 1000 -l 1 2>&1");
+              }
+
+          }
+       }
+    }
+};

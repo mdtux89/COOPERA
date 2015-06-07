@@ -1,0 +1,14 @@
+name BehaviorModule
+robot bioloid
+defaultvelocity 10
+parts (larm rarm lleg rleg)
+csv ../resources/data/train.csv
+njoints (3 3 6 6)
+batterylimit 10.5
+batteryindex 3
+batteryalarm ../resources/data/killbill.mp3
+acclimit 0.6
+accindex 7
+tiltindex 5
+poseestimation false
+pose facedown

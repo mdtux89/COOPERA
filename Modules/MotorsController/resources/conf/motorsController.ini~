@@ -1,0 +1,13 @@
+name MotorsController
+robot bioloid
+parts (larm rarm lleg rleg)
+njoints (3 3 6 6)
+velocity 8
+waittime 1.5
+jointime 3
+batterylimit 10.5
+batteryindex 3
+csv ../resources/data/train.csv
+logfile ../resources/data/log.txt
+keeplog false
+

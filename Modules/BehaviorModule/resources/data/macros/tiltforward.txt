@@ -1,0 +1,2 @@
+leftkick.txt
+rightkick.txt

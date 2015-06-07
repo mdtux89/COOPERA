@@ -1,0 +1,36 @@
+#include <MotorsThread.h>
+
+/**
+ * For each joint, set new positions using encoders passed
+ */
+void motionBody(PolyDriver* driver, vector<double> encoders, vector<double> velocities){
+    //create the IPositionControl
+    IPositionControl *position;
+    if (!driver->view(position)) {
+        return;
+    }
+    int n=0;
+    position->getAxes(&n);
+    if ( n!= encoders.size()) {
+        cout << "MotionThread exception" << endl;
+        return;
+    }
+    // Perform the procedure
+    for(int i=0;i<n;i++){
+        position->setRefSpeed(i,velocities[i]);
+        position->positionMove(i,encoders[i]);
+    }
+    return;
+}
+
+MotorsThread::MotorsThread(PolyDriver* driver, vector<double> encoders, vector<double> velocities)
+{
+	this->driver = driver;
+	this->encoders = encoders;
+	this->velocities = velocities;
+}
+
+void MotorsThread::motion(){
+    boost::thread api_caller(::motionBody, driver, encoders, velocities);
+    api_caller.timed_join(boost::posix_time::seconds(TIMEOUT));
+}

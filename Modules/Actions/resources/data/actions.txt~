@@ -1,0 +1,16 @@
+lleg, 2, -40
+hips, 1, -20
+--
+larm, 0, 40
+lleg, 2, 50
+--
+lleg, 0, 10
+lleg, 1, 20
+lleg, 2, -60
+--
+rarm, 0, -10
+lleg, 2, -10
+rleg, 0, 10
+rleg, 1, 30
+rleg, 2, 60
+--

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+   <FileVersion major="1" minor="6" />
+   <Project>
+      <Option title="MotorsController" />
+      <Option makefile_is_custom="1" />
+      <Option compiler="gcc" />
+      <Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\usr\lib\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\YARP\;" />
+      <Build>
+      <Target title="all">
+         <Option working_dir="/home/marco/bioloid/Modules/MotorsController/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/marco/bioloid/Modules/MotorsController/build/Makefile&quot;  VERBOSE=1 all" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/marco/bioloid/Modules/MotorsController/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/marco/bioloid/Modules/MotorsController/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/marco/bioloid/Modules/MotorsController/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="MotorsController">
+         <Option output="/home/marco/bioloid/Modules/MotorsController/build/MotorsController" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/marco/bioloid/Modules/MotorsController/build" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DNDEBUG" />
+            <Add option="-DBOOST_UBLAS_NDEBUG" />
+            <Add option="-DSHARK_USE_OPENMP" />
+            <Add directory="/home/marco/bioloid/Modules/MotorsController" />
+            <Add directory="/home/marco/bioloid/Modules/MotorsController/./include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/4.8" />
+            <Add directory="/usr/include/c++/4.8/backward" />
+            <Add directory="/usr/include/jsoncpp" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/4.8" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/marco/bioloid/Modules/MotorsController/build/Makefile&quot;  VERBOSE=1 MotorsController" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/marco/bioloid/Modules/MotorsController/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/marco/bioloid/Modules/MotorsController/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/marco/bioloid/Modules/MotorsController/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="MotorsController/fast">
+         <Option output="/home/marco/bioloid/Modules/MotorsController/build/MotorsController" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/marco/bioloid/Modules/MotorsController/build" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DNDEBUG" />
+            <Add option="-DBOOST_UBLAS_NDEBUG" />
+            <Add option="-DSHARK_USE_OPENMP" />
+            <Add directory="/home/marco/bioloid/Modules/MotorsController" />
+            <Add directory="/home/marco/bioloid/Modules/MotorsController/./include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/4.8" />
+            <Add directory="/usr/include/c++/4.8/backward" />
+            <Add directory="/usr/include/jsoncpp" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/4.8" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/marco/bioloid/Modules/MotorsController/build/Makefile&quot;  VERBOSE=1 MotorsController/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/marco/bioloid/Modules/MotorsController/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/marco/bioloid/Modules/MotorsController/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/marco/bioloid/Modules/MotorsController/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="rebuild_cache">
+         <Option working_dir="/home/marco/bioloid/Modules/MotorsController/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/marco/bioloid/Modules/MotorsController/build/Makefile&quot;  VERBOSE=1 rebuild_cache" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/marco/bioloid/Modules/MotorsController/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/marco/bioloid/Modules/MotorsController/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/marco/bioloid/Modules/MotorsController/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      </Build>
+      <Unit filename="/home/marco/bioloid/Modules/MotorsController/src/Configuration.cpp">
+      </Unit>
+      <Unit filename="/home/marco/bioloid/Modules/MotorsController/src/Experiment.cpp">
+      </Unit>
+      <Unit filename="/home/marco/bioloid/Modules/MotorsController/src/MotorsController.cpp">
+      </Unit>
+      <Unit filename="/home/marco/bioloid/Modules/MotorsController/src/Pose.cpp">
+      </Unit>
+      <Unit filename="/home/marco/bioloid/Modules/MotorsController/src/Sarsa.cpp">
+      </Unit>
+      <Unit filename="/home/marco/bioloid/Modules/MotorsController/src/main.cpp">
+      </Unit>
+      <Unit filename="/home/marco/bioloid/Modules/MotorsController/include/Configuration.h">
+      </Unit>
+      <Unit filename="/home/marco/bioloid/Modules/MotorsController/include/Experiment.h">
+      </Unit>
+      <Unit filename="/home/marco/bioloid/Modules/MotorsController/include/Exploration.h">
+      </Unit>
+      <Unit filename="/home/marco/bioloid/Modules/MotorsController/include/MotorsController.h">
+      </Unit>
+      <Unit filename="/home/marco/bioloid/Modules/MotorsController/include/Pose.h">
+      </Unit>
+      <Unit filename="/home/marco/bioloid/Modules/MotorsController/include/Sampler.h">
+      </Unit>
+      <Unit filename="/home/marco/bioloid/Modules/MotorsController/include/Sarsa.h">
+      </Unit>
+      <Unit filename="/home/marco/bioloid/Modules/MotorsController/include/SharedInfo.h">
+      </Unit>
+      <Unit filename="/home/marco/bioloid/Modules/MotorsController/include/StatesActions.h">
+      </Unit>
+      <Unit filename="/home/marco/bioloid/Modules/MotorsController/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\" />
+      </Unit>
+      <Unit filename="/home/marco/bioloid/Modules/MotorsController/../../../../../usr/lib/x86_64-linux-gnu/YARP/YARPConfigVersion.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\YARP\" />
+      </Unit>
+      <Unit filename="/home/marco/bioloid/Modules/MotorsController/../../../../../usr/lib/x86_64-linux-gnu/YARP/YARPConfig.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\YARP\" />
+      </Unit>
+      <Unit filename="/home/marco/bioloid/Modules/MotorsController/../../../../../usr/lib/x86_64-linux-gnu/YARP/YARPTargets.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\YARP\" />
+      </Unit>
+      <Unit filename="/home/marco/bioloid/Modules/MotorsController/../../../../../usr/lib/x86_64-linux-gnu/YARP/YARPTargets-release.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\YARP\" />
+      </Unit>
+   </Project>
+</CodeBlocks_project_file>

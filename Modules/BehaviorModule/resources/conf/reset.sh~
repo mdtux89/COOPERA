@@ -1,0 +1,13 @@
+#!/bin/bash
+
+echo "Resetting learning data.."
+rm ../../build/graph.dot
+rm ../../build/id2values.txt
+rm ../../build/edges.txt
+rm ../../build/vertices.txt
+rm ../../build/visits.txt
+rm ../../build/overheating.txt
+rm ../../build/angleerror.txt
+
+cp base.json Config.json
+rm ../data/qT.dat

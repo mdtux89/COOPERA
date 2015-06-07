@@ -1,0 +1,214 @@
+{
+   "Beta" : {
+      "Epsilon" : {
+         "decayTill" : null
+      }
+   },
+   "Domain" : {
+      "Actions" : [
+         "raisearms.txt",
+         "openshoulders.txt",
+         "tiltforward.txt",
+         "bendknees.txt"
+      ],
+      "Discretization" : {
+         "0" : [ 60, 105, 150, 195, 240 ],
+         "1" : [ 60, 105, 150, 195, 240 ],
+         "10" : [ 50, 80, 110, 140, 170 ],
+         "11" : [],
+         "12" : [ 40, 70, 100, 130, 160 ],
+         "13" : [ 180, 165, 150, 135, 120 ],
+         "14" : [ 150, 125, 100, 75, 50 ],
+         "15" : [ 150, 125, 100, 75, 50 ],
+         "16" : [ 130, 160, 190, 220, 250 ],
+         "17" : [],
+         "18" : [ -90, -45, 0, 45, 90 ],
+         "19" : [ -90, -45, 0, 45, 90 ],
+         "2" : [],
+         "3" : [ 240, 195, 150, 105, 60 ],
+         "4" : [ 240, 195, 150, 105, 60 ],
+         "5" : [],
+         "6" : [ 140, 170, 200, 230, 260 ],
+         "7" : [ 120, 135, 150, 165, 180 ],
+         "8" : [ 150, 175, 200, 225, 250 ],
+         "9" : [ 150, 175, 200, 225, 250 ]
+      },
+      "Init" : {
+         "facedown" : [
+            237,
+            231,
+            147,
+            62,
+            67,
+            146,
+            195,
+            147,
+            136,
+            157,
+            137,
+            152,
+            103,
+            151,
+            163,
+            146,
+            159,
+            150,
+            -2,
+            3
+         ],
+         "faceup" : [
+            254,
+            228,
+            147,
+            47,
+            77,
+            146,
+            195,
+            150,
+            150,
+            147,
+            149,
+            150,
+            108,
+            147,
+            150,
+            152,
+            147,
+            152,
+            -1,
+            6
+         ],
+         "sideleft" : [
+            242,
+            234,
+            148,
+            57,
+            64,
+            148,
+            203,
+            161,
+            179,
+            213,
+            147,
+            145,
+            103,
+            158,
+            127,
+            103,
+            150,
+            150,
+            70,
+            12
+         ],
+         "sideright" : [
+            239,
+            236,
+            150,
+            56,
+            65,
+            149,
+            203,
+            145,
+            170,
+            187,
+            155,
+            147,
+            99,
+            135,
+            117,
+            85,
+            156,
+            142,
+            -83,
+            -3
+         ]
+      },
+      "Locked" : [ 6, 7, 10, 12, 13, 16 ],
+      "NParamValues" : 5,
+      "Target" : [
+         101,
+         238,
+         154,
+         194,
+         60,
+         145,
+         189,
+         150,
+         246,
+         249,
+         134,
+         141,
+         98,
+         147,
+         50,
+         47,
+         156,
+         143,
+         1,
+         0
+      ],
+      "TiltIndex" : 18
+   },
+   "Experiment" : {
+      "AverageFor" : 25,
+      "Display" : false,
+      "InitialQValue" : 0,
+      "NRealSamples" : 1,
+      "Restorable" : false,
+      "SaveAfter" : 1,
+      "TestEpisodes" : 2,
+      "TestRuns" : 1,
+      "TrainEpisodes" : 5000,
+      "TrainRuns" : 1,
+      "Trials" : 1
+   },
+   "Explore" : {
+      "Beta" : {
+         "decayAfter" : 100,
+         "decayBy" : 0.20,
+         "decayTill" : 0.010,
+         "init" : 1
+      },
+      "Epsilon" : {
+         "decayAfter" : 100,
+         "decayBy" : 0.50,
+         "decayTill" : 0.00010,
+         "init" : 0.40
+      },
+      "IsEpsilonGreedy" : true
+   },
+   "Learn" : {
+      "AfterLearn" : {
+         "Frequency" : 10,
+         "PolicyFollowed" : 0,
+         "display" : true
+      },
+      "Alpha" : {
+         "decayAfter" : 200,
+         "decayBy" : 0.010,
+         "decayTill" : 0.30,
+         "init" : 0.30
+      },
+      "Gamma" : {
+         "decayAfter" : 50,
+         "decayBy" : 0.050,
+         "decayTill" : 0.90,
+         "init" : 0.90
+      },
+      "PolicyFollowed" : 0,
+      "releaseJointAfter" : 5000
+   },
+   "Reward" : {
+      "Action" : -0.020,
+      "Factor" : 0.10,
+      "Fall" : -20,
+      "FileName" : "../resources/data/rewards.csv",
+      "Goal" : 10,
+      "HwReset" : -10
+   },
+   "State" : {
+      "MaxLengthFactor" : 1.0,
+      "ObstacleDensity" : 0.330,
+      "UnsafeRange" : 0.50
+   }
+}

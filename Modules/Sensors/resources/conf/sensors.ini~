@@ -1,0 +1,4 @@
+name Spatials
+robot bioloid
+nsensors 7
+average 30

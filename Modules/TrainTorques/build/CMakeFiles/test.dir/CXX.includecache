@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/marco/bioloid/Modules/GetTorques/GetTorques.cpp
+GetTorques.h
+/home/marco/bioloid/Modules/GetTorques/GetTorques.h
+
+/home/marco/bioloid/Modules/GetTorques/GetTorques.h
+iostream
+-
+fstream
+-
+string
+-
+yarp/sig/all.h
+-
+yarp/dev/all.h
+-
+yarp/os/all.h
+-
+yarp/os/RFModule.h
+-
+yarp/os/Network.h
+-
+
+/home/marco/bioloid/Modules/GetTorques/main.cpp
+GetTorques.h
+/home/marco/bioloid/Modules/GetTorques/GetTorques.h
+yarp/os/all.h
+-
+yarp/sig/all.h
+-
+yarp/dev/ControlBoardInterfaces.h
+-
+yarp/dev/PolyDriver.h
+-
+yarp/dev/Drivers.h
+-
+

@@ -1,0 +1,4 @@
+name Torques
+robot bioloid
+parts (larm rarm lleg rleg)
+njoints (3 3 6 6)

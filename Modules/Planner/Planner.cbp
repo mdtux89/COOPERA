@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+   <FileVersion major="1" minor="6" />
+   <Project>
+      <Option title="Planner" />
+      <Option makefile_is_custom="1" />
+      <Option compiler="gcc" />
+      <Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\usr\;CMake Files\..\..\..\..\usr\lib\;CMake Files\..\..\..\..\usr\lib\YARP-2.3.60\;" />
+      <Build>
+      <Target title="all">
+         <Option working_dir="/home/marco/bioloid/metric-ff" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/marco/bioloid/metric-ff/Makefile&quot;  VERBOSE=1 all" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/marco/bioloid/metric-ff/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/marco/bioloid/metric-ff/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/marco/bioloid/metric-ff/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="Actions">
+         <Option output="/home/marco/bioloid/metric-ff/Actions" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/marco/bioloid/metric-ff" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/home/marco/bioloid/metric-ff" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/4.7" />
+            <Add directory="/usr/include/c++/4.7/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/4.7/." />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.7/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.7/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/marco/bioloid/metric-ff/Makefile&quot;  VERBOSE=1 Actions" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/marco/bioloid/metric-ff/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/marco/bioloid/metric-ff/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/marco/bioloid/metric-ff/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="Actions/fast">
+         <Option output="/home/marco/bioloid/metric-ff/Actions" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/marco/bioloid/metric-ff" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/home/marco/bioloid/metric-ff" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/4.7" />
+            <Add directory="/usr/include/c++/4.7/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/4.7/." />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.7/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.7/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/marco/bioloid/metric-ff/Makefile&quot;  VERBOSE=1 Actions/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/marco/bioloid/metric-ff/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/marco/bioloid/metric-ff/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/marco/bioloid/metric-ff/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="rebuild_cache">
+         <Option working_dir="/home/marco/bioloid/metric-ff" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/marco/bioloid/metric-ff/Makefile&quot;  VERBOSE=1 rebuild_cache" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/marco/bioloid/metric-ff/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/marco/bioloid/metric-ff/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/marco/bioloid/metric-ff/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      </Build>
+      <Unit filename="/home/marco/bioloid/metric-ff/expressions.cpp">
+      </Unit>
+      <Unit filename="/home/marco/bioloid/metric-ff/inst_easy.cpp">
+      </Unit>
+      <Unit filename="/home/marco/bioloid/metric-ff/inst_final.cpp">
+      </Unit>
+      <Unit filename="/home/marco/bioloid/metric-ff/inst_hard.cpp">
+      </Unit>
+      <Unit filename="/home/marco/bioloid/metric-ff/inst_pre.cpp">
+      </Unit>
+      <Unit filename="/home/marco/bioloid/metric-ff/lex.fct_pddl.cpp">
+      </Unit>
+      <Unit filename="/home/marco/bioloid/metric-ff/lex.ops_pddl.cpp">
+      </Unit>
+      <Unit filename="/home/marco/bioloid/metric-ff/memory.cpp">
+      </Unit>
+      <Unit filename="/home/marco/bioloid/metric-ff/output.cpp">
+      </Unit>
+      <Unit filename="/home/marco/bioloid/metric-ff/parse.cpp">
+      </Unit>
+      <Unit filename="/home/marco/bioloid/metric-ff/relax.cpp">
+      </Unit>
+      <Unit filename="/home/marco/bioloid/metric-ff/scan-fct_pddl.tab.cpp">
+      </Unit>
+      <Unit filename="/home/marco/bioloid/metric-ff/scan-ops_pddl.tab.cpp">
+      </Unit>
+      <Unit filename="/home/marco/bioloid/metric-ff/search.cpp">
+      </Unit>
+      <Unit filename="/home/marco/bioloid/metric-ff/expressions.h">
+      </Unit>
+      <Unit filename="/home/marco/bioloid/metric-ff/ff.h">
+      </Unit>
+      <Unit filename="/home/marco/bioloid/metric-ff/inst_easy.h">
+      </Unit>
+      <Unit filename="/home/marco/bioloid/metric-ff/inst_final.h">
+      </Unit>
+      <Unit filename="/home/marco/bioloid/metric-ff/inst_hard.h">
+      </Unit>
+      <Unit filename="/home/marco/bioloid/metric-ff/inst_pre.h">
+      </Unit>
+      <Unit filename="/home/marco/bioloid/metric-ff/memory.h">
+      </Unit>
+      <Unit filename="/home/marco/bioloid/metric-ff/output.h">
+      </Unit>
+      <Unit filename="/home/marco/bioloid/metric-ff/parse.h">
+      </Unit>
+      <Unit filename="/home/marco/bioloid/metric-ff/relax.h">
+      </Unit>
+      <Unit filename="/home/marco/bioloid/metric-ff/search.h">
+      </Unit>
+      <Unit filename="/home/marco/bioloid/metric-ff/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\" />
+      </Unit>
+      <Unit filename="/home/marco/bioloid/metric-ff/../../../../usr/lib/YARP-2.3.60/YARPConfigVersion.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\lib\YARP-2.3.60\" />
+      </Unit>
+      <Unit filename="/home/marco/bioloid/metric-ff/../../../../usr/lib/YARP-2.3.60/YARPConfig.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\lib\YARP-2.3.60\" />
+      </Unit>
+      <Unit filename="/home/marco/bioloid/metric-ff/../../../../usr/lib/YARP-2.3.60/YARP.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\lib\YARP-2.3.60\" />
+      </Unit>
+      <Unit filename="/home/marco/bioloid/metric-ff/../../../../usr/lib/YARP-2.3.60/YARP-release.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\lib\YARP-2.3.60\" />
+      </Unit>
+   </Project>
+</CodeBlocks_project_file>

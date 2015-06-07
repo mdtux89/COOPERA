@@ -1,0 +1,43 @@
+turn from right
+
+A0
+lleg 1 -30 (7)
+hip 1 -20 (17)
+lleg 1 -10 (7)
+
+A1
+lleg 4 20 (10)
+lleg 2 40 (8)
+larm 0 20 (0)
+
+A2
+lleg 2 -60 (8)
+lleg 0 20 (6)
+lleg 1 20 (7)
+
+A3
+rleg 2 50 (13)
+rleg 1 30 (12)
+
+__________
+
+turn 	 left
+
+A4
+rleg 1 -30 (12) 
+hip 0 -20  (16)
+rleg 1 -10 (12)
+
+A5
+rleg 4 20 (15)
+rleg 2 40 (13)
+rarm 0 20 (3)
+
+A6
+rleg 2 -60 (13)
+rleg 0 20 (11)
+rleg 1 20 (12)
+
+A7
+lleg 2 50 (8) 
+lleg 1 30 (7)

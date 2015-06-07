@@ -1,0 +1,30 @@
+/*
+ * Copyright (C) 2013 Marco Damonte
+ * CopyPolicy: Released under the terms of the LGPLv2.1 or later, see LGPL.TXT
+ * Author: Marco Damonte - mdtux89@gmail.com (University of Genoa, Italy), 2013
+ * Based on work of Shashank Pathak for Reinforcement Learning algorithm
+ */
+
+#ifndef INFO_H
+#define INFO_H
+
+#include <yarp/dev/all.h>
+#include "CommonThreads.h"
+#include <map>
+using namespace yarp::dev;
+
+/**
+ * Class used for passing parameteres to Behaviors threads.
+ */
+class Info {
+public:
+    int nParts;
+    vector<int> nJoints;
+	int nTotalJoints;
+    PolyDriver* drivers;
+    MotionThread* threads;
+	map<string,int> starts;
+	map<string,int> offset;
+};
+
+#endif

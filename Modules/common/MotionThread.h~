@@ -1,0 +1,123 @@
+/*
+ * Copyright (C) 2013 Marco Damonte
+ * CopyPolicy: Released under the terms of the LGPLv2.1 or later, see LGPL.TXT
+ * Author: Marco Damonte - mdtux89@gmail.com (University of Genoa, Italy), 2013
+ * Based on work of Shashank Pathak for Reinforcement Learning algorithm
+ */
+
+#ifndef CommonThread__H__
+#define CommonThread__H__
+
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <vector>
+
+#include <yarp/sig/all.h>
+#include <yarp/dev/all.h>
+#include <yarp/os/all.h>
+
+using namespace std;
+using namespace yarp::os;
+using namespace yarp::sig;
+using namespace yarp::dev;
+
+/**
+ * Yarp thread used to set new position for a robot part using the passed encoders and velocity.
+ * The robot part concerned is specified by the Yarp driver passed. The thread exits after the motors
+ * received the proper instructions and does not wait for the motions to finish.
+ */
+class MotionThread : public Thread
+{
+private:
+    PolyDriver* driver;
+    vector<double> encoders;
+    double velocity;
+
+public:
+   /**
+    * Set the parameters required to perform the motions
+    * @param driver the Yarp driver used
+    * @param encoders the vector containing the encoders
+    * @param velocity the velocity to be used
+    */
+    void set(PolyDriver* driver, vector<double> encoders, double velocity)
+    {
+    	this->driver = driver;
+    	this->encoders = encoders;
+    	this->velocity = velocity;
+    }
+
+    /**
+     * For each joint, set new positions using encoders passed
+     */
+    void run(){
+    	//create the IPositionControl interface
+    	IPositionControl *position;
+    	driver->view(position);
+
+    	int n=0;
+    	position->getAxes(&n);
+
+    	// Perform the procedure
+    	for(int i=0;i<n;i++){
+        	position->setRefSpeed(i,this->velocity);
+        	position->positionMove(i,this->encoders[i]);
+    	}
+    	return;
+    }
+};
+
+/**
+ * Working thread launched by each module.
+ * It can provide, when required, a check on the battery status in order 
+ * to trigger an alarm when necessary.
+ */
+class LoopThread : public Thread
+{
+private:
+    string name;
+    double limit;
+    int index;
+public:
+   LoopThread(){ //without battery status check
+   	index = -1;
+   }
+   LoopThread(string name, int index, int limit){ // with battery status check
+       this->name = name;
+       this->limit = limit;
+       this->index = index;
+   }
+
+   /**
+    * Thread main loop. If battery status check not required it
+    * repeatedly calls the delay method, otherwise check the input voltage
+    * and trigger an audio alarm when under the limit.
+    */
+   void run(){
+      if (index == -1){
+          while (yarp::os::Thread::isStopping() != true) {
+              yarp::os::Time::delay(10);
+      	  }
+      }
+      else {
+      	  yarp::os::Port sensorPort;
+          sensorPort.open("/batterystatus");
+          Network::connect("/"+name+"/sensors","/batterystatus");
+
+          while (yarp::os::Thread::isStopping() != true) {
+              yarp::os::Time::delay(10);
+              Bottle b;
+              sensorPort.read(b);
+              double v = b.get(index).asDouble();
+              cout << "Voltage: " << v << ". Limit: " << limit << endl;
+              if(v <= limit){
+                  cout << "LOW BATTERY: " << v/10 << " V" << endl;
+                  system("speaker-test -t sine -f 3000 -p 1000 -l 1 2>&1");
+              }
+
+          }
+       }
+    }
+};
+#endif

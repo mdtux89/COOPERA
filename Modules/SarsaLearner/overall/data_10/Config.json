@@ -1,0 +1,126 @@
+
+{
+   "Experiment" : {
+      "AverageFor" : 500,
+      "Restorable" : false,
+      "TestEpisodes" : 20000,
+      "TestRuns" : 1,
+      "TrainEpisodes" : 20000,
+      "TrainRuns" : 1,
+      "Trials" : 10,
+      "Display" : false
+   },
+   "Explore" : {
+      "Epsilon" : {
+         "decayAfter" : 100,
+         "decayBy" : 0.05,
+         "decayTill" : 0.0001,
+         "init" : 0.40
+      },
+      "IsEpsilonGreedy" : true
+   },
+   "Learn" : {
+      "Alpha" : {
+         "decayAfter" : 200,
+         "decayBy" : 0.01,
+         "decayTill" : 0.3,
+         "init" : 0.50
+      },
+      "Gamma" : {
+         "decayAfter" : 50,
+         "decayBy" : 0.050,
+         "decayTill" : 0.9,
+         "init" : 0.9
+      },
+      "AfterLearn" : {
+        "QFile" : "../resources/data/qT.qfile",
+        "PolicyFollowed" : 0,
+	"Beta" 	  : 0.01,
+        "Epsilon" : 0,
+        "display" : true,
+        "Frequency" : 10
+      }
+   },
+   "Output" : {
+      "QFileIn" : "",
+      "QFileOut" : "../resources/data/qT",
+      "Configuration" : ""
+   },
+   "Position" : {
+      "Initial" : [0,1],
+      "Target" : [9,9]
+   },
+   "Repair" : {
+      "QFileIn" : "../resources/data/qT.qfile",
+      "QFileOut" : "../resources/data/Repaired",
+      "DTMCOut" : "../resources/data/Repaired",
+      "COMICS" : {
+	"Executable" : "/home/airhock1/mySoftware/comics++/cmdl_src/build/cmdl_src",
+        "ComicsArgs" : " --no_model_checking  --maxPaths 100 --probBound ",      
+	"ResultFile" : "../data/comics/Result"
+        },
+      "PRISM" : {
+	"Enable"     : false,
+	"Executable" : "/home/airhock1/Packages/Verify/prism-4.0.2-src/bin/prism",
+	"ProbeSteps" : [1,400],
+	"ProbeRange" : true,
+        "Properties" : "../data/prism/Prism.pctl",
+        "ResultFile" : "../data/prism/"     
+   	},
+      "PARAM" : {
+        "ParamExecutable" : "/home/airhock1/Packages/Verify/param-v2_3/param",
+	"ParamEncoding" : "../data/param/Param.nm",
+        "ParamProperties" : "../data/param/Properties.pctl",
+        "ProbeSteps" : [1,400],
+	"ProbeRange" : true,
+	"Truncate" : 5,
+        "ParamResult" : "Final.out",
+        "ReducedFrac" : "Frac_New.txt",
+        "ConstraintA" : "A.txt",
+	"ConstraintB" : "b.txt",
+        "ParamPaths" : 2,      
+        "Parameters" : {
+          "Decay" : 1.0,
+	  "Steps" : 0.5,
+	  "LimitsP0" : [0,1],
+          "LimitsP1" : [0,1]
+	  }
+        },
+      "ParamParameters" : 7,
+      "ParamDecay" : 5.0,
+      "Delta" : 5.0,
+      "RepairBeta" : 0.5,
+      "DoRepair" : true,
+      "RenewQMap" : true,      
+      "TestAfter" : true,
+      "TestBefore" : true,
+      "EnableObstacle" : false,
+      "IterateFor" : 10,
+      "MCThreshold" : 0.000001,
+      "MaxLength" : 30,
+      "MinQValue" : -150,
+      "MaxZValue" : 0.99,
+      "MinPathProb" : 0,
+      "NoLoop" : false,
+      "ProbBoundFactor" : 0.50,
+      "S" : 1,
+      "SimultaneousRepair" : 100,
+      "Timeout" : 5
+   },
+   "Reward" : {
+      "Action" : -0.002,
+      "Factor" : 0.1,
+      "Goal" : 25,
+      "Pit"  : -10,
+      "Reset" : -5,
+      "FileName" : "../data/AveragedRewards.dat"
+   },
+   "State" : {
+      "Maximum" : [9,9],
+      "Minimum" : [0,0],
+      "UnsafeRange" : 0.4,
+      "ObstacleDensity" : 0.6,
+      "MaxLengthFactor" : 3.0
+      
+   }
+}

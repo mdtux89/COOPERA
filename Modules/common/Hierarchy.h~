@@ -1,0 +1,178 @@
+/*
+ * Copyright (C) 2013 Marco Damonte
+ * CopyPolicy: Released under the terms of the LGPLv2.1 or later, see LGPL.TXT
+ * Author: Marco Damonte - mdtux89@gmail.com (University of Genoa, Italy), 2013
+ */
+
+#ifndef Hierarchy__H__
+#define Hierarchy__H__
+
+#include <sstream>
+#include <string>
+#include <vector>
+#include "../../common/CommonThreads.h"
+#include <map>
+#include <yarp/sig/all.h>
+#include <yarp/dev/all.h>
+#include <yarp/os/all.h>
+
+using namespace std;
+using namespace yarp::dev;
+
+/**
+ * Class used for passing parameteres to Behaviors threads.
+ */
+class BehaviorInfo {
+public:
+    int nParts;
+    vector<int> nJoints;
+    int nTotalJoints;
+    PolyDriver* drivers;
+    MotionThread* threads;
+    map<string,int> starts;
+    map<string,int> sizes;
+};
+
+/**
+ * Yarp thread used to define a single behavior (for standing up).
+ * It is the basic action unit used in hierarchical learning for standing up).
+ * The behavior description is provided via input file with the following format:
+ * leg, ?, ?, ?, ?
+ * arm, right, ?, ?, 10
+ * hip, ?, 0, ?, 10
+ * ...
+ * , where the ? indicate a parameter (side, joint, quantity and velocity; in this order).
+ */
+class Behavior : public Thread {
+private:
+    BehaviorInfo info;
+	string name;
+    vector<string> params;
+
+    /**
+     * Process the string, making the substitution with a given paramater
+     * if necessary.
+     * @param str the string to process
+     * @return the string processed
+     */
+    string process(string str) {
+        if (str != "?") {
+            return str;
+        }
+        else {
+            string p = *params.begin();
+            params.erase(params.begin());
+            return p;
+        }
+    }
+
+public:
+    Behavior(BehaviorInfo info, string name) {
+        this->info = info;
+		this->name = name;
+	}
+
+	void setParams(vector<string> params) {
+		this->params = params;
+	}
+
+	int paramsSize() {
+		int size = 0;
+		ifstream inFile;
+		inFile.open("../resources/data/behaviors/" + name.c_str());
+		string read;
+	    while(getline(inFile,read)) {
+	        stringstream ss(read);
+            string str;
+			for(int i = 0; i < 5; i++) {
+				getline(ss,str,',');	
+				if (str == "?") size++;
+			} 
+        }
+		return size;
+	}
+
+    /**
+     * Run the behavior motion
+     */
+	void run() {
+		vector<int> encoders;
+        vector<int> velocities;
+        encoders.resize(info.nTotalJoints);
+        velocities.resize(info.nTotalJoints);
+
+		//process the input file (specified by name) and use properly
+        //the parameters provided
+		ifstream inFile;
+		inFile.open((name + ".bhv").c_str());
+		string read;
+	    while(true){
+        	if(!getline(inFile,read)){ //read one line until end of file..
+                break;
+	        }
+	        stringstream ss(read);
+
+		    //split the line in part of the robot, joint id and polarity of the action
+            string part,side,joint,quant,veloc;
+		    getline(ss,part,',');
+		    getline(ss,side,',');
+		    getline(ss,joint,',');
+		    getline(ss,quant,',');
+            getline(ss,veloc,',');
+
+            part = process(part);
+            side = process(side);
+            int j = atoi(process(joint).c_str());
+            j += info.starts[part];
+            if (side == "right") {
+                 j += info.sizes[part];
+            }
+            encoders[j] = atoi(process(quant).c_str());
+            velocities[j] = atoi(process(veloc).c_str());
+        }
+
+    	// Perform the procedure
+        int c=0;
+        for(int j=0;j<info.nParts;j++){ //for each robot parts
+
+            vector<double> e_values(encoders.begin()+c,encoders.begin() + c + info.nJoints[j]);
+            vector<double> v_values(velocities.begin()+c,velocities.begin() + c + info.nJoints[j]);
+
+            //pass everything to the threads
+            info.threads[j].set(&info.drivers[j],e_values,v_values,true);
+            if(!info.threads[j].start()){
+                return;
+            }
+            c+= info.nJoints[j];
+
+        }
+	}
+};
+
+/*
+ * A combination of basic Behavior.
+ * It is used as an action in the hierarchical learning used for standing up.
+ */
+class MacroBehavior {
+private:
+	vector<Behavior> behaviors;
+public:
+	MacroBehavior(vector<Behavior> behaviors){
+		this->behaviors = behaviors;
+	}
+
+    /**
+     * Run the macro-behavior
+     */
+	void run() {
+		for (int i = 0; i < behaviors.size(); i++) {
+			behaviors[i].run();
+		}
+		for (int i = 0; i < behaviors.size(); i++) {
+			behaviors[i].join();
+		}
+		Time::delay(1);
+	}
+};
+
+#endif
