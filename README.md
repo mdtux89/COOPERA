@@ -1,3 +1,5 @@
+#Introduction
+
 COOPERA (COst-effective Open-source Platform for Empirical Robotics and Arficial Intelligence) is a robotic platform based on the Bioloid} robot and it took inspiration from the iCub project. Yarp, a middleware software developed in the context of the iCub project, was used as a middleware layer to implement a modular and efficient interface between the user and the robot. 
 
 With a modest economic investment (the overall cost of the platform is less than 1500\$) it is possible to own a small and robust 
@@ -7,9 +9,9 @@ robots. In spite of its intrinsical limitations, COOPERA is an useful research t
 
 In particular, we have used this platform in order to program a robot that is able to learn directly on the real robot (in-vivo) how to stand up using a Reinforcement Learning approach instead of using simulators, as usually done in research.
 
-Brief explanation of the modules
+#Brief explanation of the modules
 
-Encoders: can be used to get the encoders corresponding to a specific robot configuration or to set a new configuration by passing the angles that must be gained by the motors (for instance it was used to devise the BehaviorModule's reset procedures)
+#Encoders: can be used to get the encoders corresponding to a specific robot configuration or to set a new configuration by passing the angles that must be gained by the motors (for instance it was used to devise the BehaviorModule's reset procedures)
 
 \item \textbf{\emph{Torques}}: can be used to get the torques corresponding to a specific robot configuration
 \item \textbf{\emph{Sensors}}: can be used to get the sensors feedback corresponding to a specific robot configuration
